@@ -1,0 +1,18 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import { Container } from './styles';
+
+export default function Students() {
+    return (
+        <Container>
+            <head>
+                <h2>Gerenciar Alunos</h2>
+                <aside>
+                    <Link to="/"> Cadastrar </Link>
+                    <input type="text" />
+                </aside>
+            </head>
+        </Container>
+    );
+}
