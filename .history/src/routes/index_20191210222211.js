@@ -26,8 +26,8 @@ export default function Routes() {
             />
 
             <Route path="/plans" component={Plans} exact isPrivate />
-            <Route path="/plans/edit" component={EditPlans} isPrivate />
-            <Route path="/plans/create" component={CreatePlans} isPrivate />
+            <Route path="/plan/edit" component={EditPlans} isPrivate />
+            <Route path="/plan/create" component={CreatePlans} isPrivate />
         </Switch>
     );
 }

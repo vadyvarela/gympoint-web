@@ -7,7 +7,12 @@ import * as Yup from 'yup';
 
 import { updateRequest } from '~/store/modules/students/actions';
 
-import { Container, Header, Content, ControlElement } from './styles';
+import {
+    Container,
+    Header,
+    Content,
+    ControlElement,
+} from '~/pages/_layout/default/index';
 
 const schema = Yup.object().shape({
     nome: Yup.string()

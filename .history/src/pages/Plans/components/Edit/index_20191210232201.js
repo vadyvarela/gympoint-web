@@ -10,19 +10,11 @@ import { updateRequest } from '~/store/modules/students/actions';
 import { Container, Header, Content, ControlElement } from './styles';
 
 const schema = Yup.object().shape({
-    nome: Yup.string()
-        .required('O Campo nome é obrigatorio')
-        .min(6, 'No minimo 8 caracteres'),
-    email: Yup.string()
-        .email('Insira um email valido')
-        .required('O email é obrigatorio'),
-
-    idade: Yup.number()
-        .positive('Apenas numeros positivos')
-        .integer('Apenas numeros inteiros')
-        .required('O senha é obrigatorio'),
-    peso: Yup.number().required('Campo peso é obrigatorio'),
-    altura: Yup.string().required('Campo Altura é obrigatorio'),
+    title: Yup.string()
+        .required('O Campo titulo é obrigatorio')
+        .min(3, 'No minimo 3 caracteres'),
+    duration: Yup.number().required('Campo Duração é obrigatorio'),
+    price: Yup.number().required('Campo preço é obrigatorio'),
 });
 
 export default function Edit({ history }) {

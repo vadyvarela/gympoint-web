@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
@@ -36,11 +35,7 @@ export default function Edit({ history }) {
 
     return (
         <Container>
-            <Form
-                schema={schema}
-                initialData={studentPrevious}
-                onSubmit={handleSubmit}
-            >
+            <Form schema={schema} initialData={studentPrevious} onSubmit={handleSubmit}>
                 <Header>
                     <strong>Ediçao do Aluno</strong>
                     <aside>
@@ -97,7 +92,3 @@ export default function Edit({ history }) {
         </Container>
     );
 }
-
-Edit.propTypes = {
-    history: PropTypes.element.isRequired,
-};

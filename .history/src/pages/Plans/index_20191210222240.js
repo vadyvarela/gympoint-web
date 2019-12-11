@@ -12,7 +12,7 @@ import {
     Content,
     StudentTable,
     ButtonDelete,
-} from '../_layout/default/styles';
+} from './styles';
 
 export default function Students() {
     const dispatch = useDispatch();

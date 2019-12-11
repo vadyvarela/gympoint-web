@@ -12,24 +12,20 @@ import {
     Content,
     StudentTable,
     ButtonDelete,
-} from '../_layout/default/styles';
+} from './styles';
 
 export default function Students() {
     const dispatch = useDispatch();
-    const [page, setPage] = useState(1);
-    const [studentToSearch, setStudentToSearch] = useState('');
     const [students, setStudents] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await api.get(
-                `students?page=${page}&q=${studentToSearch}`
-            );
+            const response = await api.get(`plans`);
             setStudents(response.data);
         }
 
         fetchData();
-    }, [page, studentToSearch]);
+    }, []);
 
     function handleDeleteStudent(id) {
         dispatch(deleteRequest(id));
@@ -38,11 +34,7 @@ export default function Students() {
         setStudents(_students);
     }
 
-    function handleStudentSearch(event) {
-        setStudentToSearch(event.target.value);
-    }
-
-    return (
+return (
         <Container>
             <Header>
                 <strong>Gerenciar Alunos</strong>
@@ -51,11 +43,6 @@ export default function Students() {
                         <MdAdd size={16} color="#fff" />
                         CADASTRAR
                     </Link>
-                    <input
-                        type="text"
-                        onChange={handleStudentSearch}
-                        placeholder="Pesquisar..."
-                    />
                 </aside>
             </Header>
             <Content>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { MdAdd, MdDelete, MdEdit } from 'react-icons/md';
 import api from '~/services/api';
 
-import { deleteRequest } from '~/store/modules/students/actions';
+import { deleteRequest } from '~/store/modules/plans/actions';
 
 import {
     Container,
@@ -12,73 +12,62 @@ import {
     Content,
     StudentTable,
     ButtonDelete,
-} from '../_layout/default/styles';
+} from './styles';
 
-export default function Students() {
+export default function Plans() {
     const dispatch = useDispatch();
-    const [page, setPage] = useState(1);
-    const [studentToSearch, setStudentToSearch] = useState('');
-    const [students, setStudents] = useState([]);
+    const [plans, setPlans] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await api.get(
-                `students?page=${page}&q=${studentToSearch}`
-            );
-            setStudents(response.data);
+            const response = await api.get(`plans`);
+            setPlans(response.data);
         }
 
         fetchData();
-    }, [page, studentToSearch]);
+    }, []);
 
     function handleDeleteStudent(id) {
         dispatch(deleteRequest(id));
 
-        const _students = students.filter(item => item.id !== id);
-        setStudents(_students);
-    }
-
-    function handleStudentSearch(event) {
-        setStudentToSearch(event.target.value);
+        const _plans = plans.filter(item => item.id !== id);
+        setPlans(_plans);
     }
 
     return (
         <Container>
             <Header>
-                <strong>Gerenciar Alunos</strong>
+                <strong>Gerenciar Planos</strong>
                 <aside>
-                    <Link to="/students/create">
+                    <Link to="/plans/create">
                         <MdAdd size={16} color="#fff" />
                         CADASTRAR
                     </Link>
-                    <input
-                        type="text"
-                        onChange={handleStudentSearch}
-                        placeholder="Pesquisar..."
-                    />
                 </aside>
             </Header>
             <Content>
                 <StudentTable>
                     <thead>
                         <tr>
-                            <th>NAME</th>
-                            <th>E-MAIL</th>
-                            <th>IDADE</th>
+                            <th>TITULO</th>
+                            <th>DURAÇÃO </th>
+                            <th>VALOR p/MES</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {students.map(student => (
-                            <tr key={student.id}>
-                                <td>{student.nome}</td>
-                                <td>{student.email}</td>
-                                <td>{student.idade} Anos</td>
+                        {plans.map(plan => (
+                            <tr key={plan.id}>
+                                <td>{plan.title}</td>
+                                <td>
+                                    {plan.duration === 1 ? 'Mêses' : 'Mêses'}
+                                </td>
+                                <td> {plan.price} </td>
                                 <td>
                                     <Link
                                         to={{
                                             pathname: '/students/edit',
                                             state: {
-                                                student,
+                                                plan,
                                             },
                                         }}
                                     >
@@ -88,7 +77,7 @@ export default function Students() {
                                 <td>
                                     <ButtonDelete
                                         onClick={() =>
-                                            handleDeleteStudent(student.id)
+                                            handleDeleteStudent(plan.id)
                                         }
                                     >
                                         <MdDelete size={22} color="#de3b3b" />

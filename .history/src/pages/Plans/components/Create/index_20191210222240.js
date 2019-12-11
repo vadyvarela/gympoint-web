@@ -1,13 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
-import { updateRequest } from '~/store/modules/students/actions';
+import { registerRequest } from '~/store/modules/students/actions';
 
-import { Container, Header, Content, ControlElement } from './styles';
+import { Container, Header, Content, ControlElement } from '../Edit/styles';
 
 const schema = Yup.object().shape({
     nome: Yup.string()
@@ -25,24 +24,18 @@ const schema = Yup.object().shape({
     altura: Yup.string().required('Campo Altura é obrigatorio'),
 });
 
-export default function Edit({ history }) {
+export default function Create() {
     const dispatch = useDispatch();
 
-    const studentPrevious = history.location.state.student;
-
     function handleSubmit(data) {
-        dispatch(updateRequest(studentPrevious.id, data));
+        dispatch(registerRequest(data));
     }
 
     return (
         <Container>
-            <Form
-                schema={schema}
-                initialData={studentPrevious}
-                onSubmit={handleSubmit}
-            >
+            <Form schema={schema} onSubmit={handleSubmit}>
                 <Header>
-                    <strong>Ediçao do Aluno</strong>
+                    <strong>Cadastro do Aluno</strong>
                     <aside>
                         <Link to="/students">Voltar</Link>
                         <button type="submit">Salvar</button>
@@ -97,7 +90,3 @@ export default function Edit({ history }) {
         </Container>
     );
 }
-
-Edit.propTypes = {
-    history: PropTypes.element.isRequired,
-};

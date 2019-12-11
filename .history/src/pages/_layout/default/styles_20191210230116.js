@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
+export const Wrapper = styled.div`
+    height: 100%;
+    background: #ccc;
+`;
+
 export const Container = styled.div`
+    max-width: 750px;
     padding: 30px 70px;
     margin: 25px;
     height: 100%;

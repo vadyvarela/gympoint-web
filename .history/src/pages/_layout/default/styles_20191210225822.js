@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-    padding: 30px 120px;
+    padding: 30px 70px;
     margin: 25px;
     height: 100%;
     flex-direction: column;

@@ -12,24 +12,21 @@ import {
     Content,
     StudentTable,
     ButtonDelete,
-} from '../_layout/default/styles';
+} from './styles';
 
 export default function Students() {
     const dispatch = useDispatch();
-    const [page, setPage] = useState(1);
     const [studentToSearch, setStudentToSearch] = useState('');
     const [students, setStudents] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await api.get(
-                `students?page=${page}&q=${studentToSearch}`
-            );
+            const response = await api.get(`plans`);
             setStudents(response.data);
         }
 
         fetchData();
-    }, [page, studentToSearch]);
+    }, [studentToSearch]);
 
     function handleDeleteStudent(id) {
         dispatch(deleteRequest(id));
