@@ -19,7 +19,7 @@ Front-end React.js - GoStack Bootcamp <a href="https://rocketseat.com.br" target
 - Node.js [Node.js v10.16](https://nodejs.org/)
 - Yarn [Yarn v1.13](https://yarnpkg.com/)
 - Google Chrome Browser [Google](https://www.google.pt/intl/pt-PT/chrome/?brand=CHBD&gclid=CjwKCAiAxMLvBRBNEiwAKhr-nMvKg5nZhwHd__xLE-Mume31jYijN5WLG991vsf4owDGK4VNHWtrEhoCNRgQAvD_BwE&gclsrc=aw.ds)
-- Back-end Gympoint [Back-end-gympoint](https://github.com/vadyvarela/gympoint-api)
+- Back-end Gympoint [Back-end-gympoint](https://github.com/vadyvarela/Gympoint)
 
 ## Instruções
 
