@@ -102,7 +102,6 @@ export default function Students() {
                         ))}
                     </tbody>
                 </StudentTable>
-
                 <PaginationInfo
                     page={students.page}
                     perPage={students.perPage}

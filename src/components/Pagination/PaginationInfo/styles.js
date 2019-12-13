@@ -3,12 +3,17 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    padding: 10px 10px;
 
     strong {
-        color: #333;
+        margin-top: 10px;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #999;
     }
 
     span {
-        color: #333;
+        font-size: 12px;
+        color: #666;
     }
 `;

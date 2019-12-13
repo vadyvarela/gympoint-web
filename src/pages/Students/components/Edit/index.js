@@ -10,7 +10,7 @@ import { updateRequest } from '~/store/modules/students/actions';
 import { Container, Header, Content, ControlElement } from './styles';
 
 const schema = Yup.object().shape({
-    nome: Yup.string()
+    name: Yup.string()
         .required('O Campo nome é obrigatorio')
         .min(6, 'No minimo 8 caracteres'),
     email: Yup.string()
@@ -37,6 +37,7 @@ export default function Edit({ history }) {
     return (
         <Container>
             <Form
+                id="formStudent"
                 schema={schema}
                 initialData={studentPrevious}
                 onSubmit={handleSubmit}
@@ -45,7 +46,9 @@ export default function Edit({ history }) {
                     <strong>Ediçao do Aluno</strong>
                     <aside>
                         <Link to="/students">Voltar</Link>
-                        <button type="submit">Salvar</button>
+                        <button form="formStudent" type="submit">
+                            Salvar
+                        </button>
                     </aside>
                 </Header>
                 <Content>
@@ -97,7 +100,3 @@ export default function Edit({ history }) {
         </Container>
     );
 }
-
-Edit.propTypes = {
-    history: PropTypes.element.isRequired,
-};

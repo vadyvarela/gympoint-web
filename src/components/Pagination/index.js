@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { MdChevronRight, MdChevronLeft } from 'react-icons/md';
 import { Paginator, PagePrev, PageItem, PageNext } from './styles';
 
 export default function Pagination({
@@ -57,7 +58,7 @@ export default function Pagination({
         <Paginator align={align}>
             {pageSelected > 1 && (
                 <PagePrev title="Anterior" onClick={handlePrevPage}>
-                    &laquo;
+                    <MdChevronLeft size={14} color="#de3b3b" />
                 </PagePrev>
             )}
 
@@ -72,7 +73,7 @@ export default function Pagination({
             ))}
             {pageSelected < totalPage && (
                 <PageNext title="Próxima" onClick={handleNextPage}>
-                    &raquo;
+                    <MdChevronRight size={14} color="#de3b3b" />
                 </PageNext>
             )}
         </Paginator>

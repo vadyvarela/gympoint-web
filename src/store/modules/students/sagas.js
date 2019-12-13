@@ -7,7 +7,7 @@ import { responseSuccess, requestFailure } from './actions';
 
 export function* request({ payload }) {
     try {
-        const { name, page } = payload;
+        const { name, page } = payload.data;
 
         const response = yield call(api.get, 'students', {
             params: {
